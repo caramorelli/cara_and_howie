@@ -1,6 +1,7 @@
 require_relative "tile"
 
 class Board
+  attr_reader :grid
   def self.empty_grid
     Array.new(9) do
       Array.new(9) { Tile.new(0) }
@@ -59,6 +60,7 @@ class Board
 
   def solved_set?(tiles)
     nums = tiles.map(&:value)
+    # nums = tiles.map { |tile| tile = value}
     nums.sort == (1..9).to_a
   end
 
@@ -81,5 +83,5 @@ class Board
   end
 
   private
-  attr_reader :grid
+
 end
